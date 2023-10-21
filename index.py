@@ -12,6 +12,7 @@ response = requests.get(url)
 if response.status_code == 200:
     data = response.json()
     print(data)
+    
     temp = data['main']['temp']
     desc = data['weather'][0]['description']
     sunrise=data['sys']['sunrise']
@@ -20,7 +21,7 @@ if response.status_code == 200:
     humidity=data['main']['humidity']
     country=data['sys']['country']
 
-    print(f'Temperature: {temp} K')
+    print(f'Temperature: {int(temp-273.15)} C')
     print(f'Description: {desc}')
     print(f'Sunrise: {sunrise}')
     print(f'Sunset:{sunset}')
